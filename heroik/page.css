@@ -1,0 +1,113 @@
+/* HeroiK pages — same language as the institutional page (index.html), but
+   shared by a file instead of pasted into each one. The tokens, the fonts, the
+   760px shell and the gold are that page's; what is new here is only what a
+   long document needs: headings that nest, lists, and a table of contents. */
+
+:root{
+  --ground:#0B0D17;
+  --panel:#12141F;
+  --line:#232637;
+  --ink:#F2F1EE;
+  --body:#B8BACA;
+  --muted:#7C7F94;
+  --faint:#565A70;
+  --gold:#F0C86A;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ground);color:var(--body);
+  font-family:var(--sans);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(240,200,106,.32)}
+a:hover{border-bottom-color:var(--gold)}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.shell{max-width:760px;margin:0 auto;padding:0 24px}
+
+/* ── header ───────────────────────────────────────────── */
+.hero{position:relative;border-bottom:1px solid var(--line)}
+.hero .shell{position:relative;padding:60px 24px 38px}
+.back{
+  display:inline-block;font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);border:0;margin-bottom:26px
+}
+.back:hover{color:var(--ink)}
+.wordmark{
+  font-family:var(--serif);font-size:clamp(32px,6.5vw,48px);line-height:1.04;
+  color:var(--ink);margin:0 0 8px;letter-spacing:-.012em
+}
+.wordmark em{font-style:italic;color:var(--gold)}
+.tagline{margin:0;font-size:clamp(16px,2.4vw,19px);color:var(--body);max-width:40ch}
+.updated{
+  margin:16px 0 0;font-size:13.5px;color:var(--faint);font-variant-numeric:tabular-nums
+}
+
+.langs{
+  position:absolute;top:24px;right:24px;display:flex;gap:2px;
+  border:1px solid var(--line);border-radius:7px;overflow:hidden;background:rgba(11,13,23,.6)
+}
+.langs button{
+  font:500 11.5px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);background:none;border:0;padding:8px 11px;cursor:pointer
+}
+.langs button[aria-pressed="true"]{background:var(--panel);color:var(--ink)}
+.langs button:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+
+/* ── document body ────────────────────────────────────── */
+section{padding:44px 0}
+section + section{border-top:1px solid var(--line)}
+h2{
+  font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint);margin:0 0 20px
+}
+h3{
+  font-family:var(--serif);font-size:23px;font-weight:400;color:var(--ink);
+  margin:30px 0 12px;line-height:1.25
+}
+h3:first-of-type{margin-top:0}
+p{margin:0 0 16px;max-width:62ch}
+p:last-child{margin-bottom:0}
+.lead{font-size:18.5px;color:var(--ink);max-width:58ch}
+strong{color:var(--ink);font-weight:500}
+em.q{font-style:italic;color:var(--ink)}
+
+ul,ol{margin:0 0 16px;padding-left:22px;max-width:62ch}
+li{margin:0 0 9px}
+li:last-child{margin-bottom:0}
+li::marker{color:var(--faint)}
+
+dl{margin:0;display:grid;gap:14px}
+@media (min-width:620px){dl{grid-template-columns:170px 1fr;gap:14px 24px}}
+dt{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0}
+dd{margin:0;color:var(--ink)}
+
+/* a panel for the one thing a reader should not miss on the page */
+.note{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:22px 24px;margin:0 0 24px
+}
+.note p{margin:0 0 12px}
+.note p:last-child{margin-bottom:0}
+
+/* the three cross-links that every HeroiK page carries */
+.related{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden}
+@media (min-width:620px){.related{grid-template-columns:1fr 1fr 1fr}}
+.related a{
+  background:var(--panel);padding:18px 20px;border:0;color:var(--ink);
+  font-size:15.5px;display:block
+}
+.related a:hover{background:#171A28}
+.related a span{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+
+footer{border-top:1px solid var(--line);padding:30px 0 46px;font-size:13.5px;color:var(--faint)}
+footer p{margin:0 0 5px;max-width:none}
+footer .legal{font-variant-numeric:tabular-nums}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
